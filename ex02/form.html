@@ -1,0 +1,66 @@
+<!-- *********************************************************************** -->
+<!--                                                                         -->
+<!--                                                      :::      ::::::::  -->
+<!-- form.html                                          :+:      :+:    :+:  -->
+<!--                                                  +:+ +:+         +:+    -->
+<!-- By: amehmeto <marvin@42.fr>                    +#+  +:+       +#+       -->
+<!--                                              +#+#+#+#+#+   +#+          -->
+<!-- Created: 2018/05/29 00:25:53 by amehmeto          #+#    #+#            -->
+<!-- Updated: 2018/05/29 02:31:18 by amehmeto         ###   ########.fr      -->
+<!--                                                                         -->
+<!-- *********************************************************************** -->
+
+<!DOCTYPE html>
+<head>
+	<title>Formulaire</title>
+	<style>
+table {
+	border-collapse: collapse;
+}
+td, th {
+	border: 1px solid;
+}
+	</style>
+</head>
+<body>
+	<form >
+		<p><label>Firstname :</label><input type="text" name="firstname" id="firstname"/></p>
+		<p><label>Name :</label><input type="text" name="name" id="name" /></p>
+		<p><label>Age :</label><input type="number" name="age" id="age" /></p>
+		<p><label>Phone :</label><input type="tel" name="phone" id="phone" /></p>
+		<p><label>Email :</label><input type="email" name="email" id="email" /></p>
+		<p><label>Student at 42 ? :</label><input type="checkbox" name="student" id="student" /></p>
+		<p><label>Male</label><input type="radio" name="gender" value="gender_male" id="gender_male" />
+		<label>Female</label><input type="radio" name="gender" value="gender_female" id="gender_female"/>
+		<label>Other</label><input type="radio" name="gender" value="gender_other" id="gender_other" /></p>
+		<input type="submit" value="Run that sexy Javascript!" onclick="displayFormContents();" />
+	</form>
+	<script>
+function displayFormContents() {
+
+	var out = '';
+
+	out += 'Firstname = ' + document.getElementById('firstname').value + '\n';
+	out += 'Name = '      + document.getElementById('name').value      + '\n';
+	out += 'Phone = '     + document.getElementById('phone').value     + '\n';
+	out += 'Age = '       + document.getElementById('age').value       + '\n';
+	out += 'Email = '     + document.getElementById('email').value     + '\n';
+
+	out += 'Gender = ';
+	if (document.getElementById('gender_male').checked == true)
+		out += document.getElementById('gender_male').value;
+	if (document.getElementById('gender_female').checked == true)
+		out += document.getElementById('gender_female').value;
+	if (document.getElementById('gender_other').checked == true)
+		out += document.getElementById('gender_other').value;
+	out += '\n';
+
+	if (document.getElementById('student').checked == true)
+		out += 'Student at 42 = yes';
+	else
+		out += 'Student at 42 = no';
+
+	alert(out);
+}
+	</script>
+</body>
